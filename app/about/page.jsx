@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { CiFlag1, CiGlobe } from 'react-icons/ci'
 import { GoStack } from 'react-icons/go'
+import aboutImage from "@/public/about.png"
 
 export default function AboutPage() {
   return (
@@ -10,14 +11,15 @@ export default function AboutPage() {
             About PrintForge
         </h1>
         <div className='flex flex-col md:flex-row items-start justify-between gap-6'>
-            <div>
-                <Image src="/about.png"
+            <div className='flex-1'>
+                <Image src={aboutImage}
                 alt='About printforge image'
-                width={300}
-                height={300}
+                width={628}
+                height={627}
+                className='rounded-lg'
                 />
             </div>
-            <div className='max-w-lg space-y-4'>
+            <div className='flex-1 space-y-5'>
                 <p className='text-base font-medium'>About PrintForge</p>
                 <h2 className='text-3xl font-bold'>Empowering Makers Worldwide</h2>
                 <p className='text-lg font-medium'>Founded in 2023, PrintForge has quickly become the go-to platform for 3D printing enthusiasts, makers, and professional designers to share and discover amazing STL files for 3D printing.</p>
@@ -25,21 +27,21 @@ export default function AboutPage() {
             </div>
         </div>
         <div className='flex flex-col md:flex-row items-center justify-around gap-6 mt-10'>
-            <div className='border p-3'>
+            <div className='border p-3 rounded-lg'>
                 <div className='flex items-center gap-1'>
                     <span><GoStack size={20} /></span>
                     <h3 className='text-base font-medium'>100K+ Models</h3>
                 </div>
                 <p>Access our vast library of community-created 3D models, from practical tools to artistic creations.</p>
             </div>
-            <div className='border p-3'>
+            <div className='border p-3 rounded-lg'>
                 <div className='flex items-center gap-1'>
                     <span><CiGlobe size={20} /></span>
                     <h3 className='text-base font-medium'>Active Community</h3>
                 </div>
                 <p>Join thousands of makers who share tips, provide feedback, and collaborate on projects.</p>
             </div>
-            <div className='border p-3'>
+            <div className='border p-3 rounded-lg'>
                 <div className='flex items-center gap-1'>
                     <span><CiFlag1 size={20} /></span>
                     <h3 className='text-base font-medium'>Free to Use</h3>
