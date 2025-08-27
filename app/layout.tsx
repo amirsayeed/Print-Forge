@@ -3,6 +3,7 @@ import "./globals.css";
 import {Albert_Sans, Montserrat_Alternates} from "next/font/google";
 import logo from "@/public/Artboard1.png";
 import Image from "next/image";
+import type { RootLayoutProps } from "@/app/types";
 
 const albertSans = Albert_Sans({
   subsets: ["latin"],
@@ -16,21 +17,19 @@ const montserratAlternates = Montserrat_Alternates({
   variable: "--font-montserrat-alternates"
 })
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children}: RootLayoutProps) {
   return (
     <html lang="en" data-theme="light">
       <body className={`${albertSans.className} ${montserratAlternates.variable}`}>
         <header className="px-6">
           <nav className="flex items-center justify-between">
-            <Image src={logo} alt="logo image"
-            width={240}
-            height={61} />
+            <Link href='/'>
+              <Image src={logo} alt="logo image"
+              width={240}
+              height={61} />
+            </Link>
             <ul className="flex gap-3">
-              <li><Link href='/'>3D Models</Link></li>
+              <li><Link href='/3d-models'>3D Models</Link></li>
               <li><Link href='/about'>About</Link></li>
             </ul>
           </nav>
