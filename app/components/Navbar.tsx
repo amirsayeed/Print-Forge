@@ -9,7 +9,9 @@ export default function Navbar() {
             <Link href='/'>
               <Image src={logo} alt="logo image"
               width={240}
-              height={61} />
+              height={61} 
+              priority
+              />
             </Link>
             <ul className="flex gap-3">
               <li><Link href='/3d-models'>3D Models</Link></li>
