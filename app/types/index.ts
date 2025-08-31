@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type RootLayoutProps = Readonly<{
   children: React.ReactNode;
 }>
@@ -40,4 +42,9 @@ export type ModelCardProps = {
 export type ModelsGridProps = {
   title: string,
   models: Model[]
+}
+
+export type NavLinkProps = {
+  href: string,
+  children: ReactNode
 }

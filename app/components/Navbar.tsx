@@ -2,20 +2,32 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import logo from "@/public/Artboard1.png";
+import mobileLogo from "@/public/printforge-logo mobile.png"
+import NavLink from './NavLink';
 export default function Navbar() {
   return (
     <header className="px-6">
         <nav className="flex items-center justify-between">
             <Link href='/'>
-              <Image src={logo} alt="logo image"
-              width={240}
-              height={61} 
-              priority
-              />
+              <div className='relative'>
+                <Image src={logo} alt="logo image"
+                width={240}
+                height={61} 
+                priority
+                className='hidden md:block'
+                />
+                <Image src={mobileLogo} alt="logo image"
+                width={39}
+                height={39} 
+                priority
+                className='block md:hidden'
+                />
+
+              </div>
             </Link>
             <ul className="flex gap-3">
-              <li><Link href='/3d-models'>3D Models</Link></li>
-              <li><Link href='/about'>About</Link></li>
+              <NavLink href='/3d-models'>3D Models</NavLink>
+              <NavLink href='/about'>About</NavLink>
             </ul>
           </nav>
     </header>

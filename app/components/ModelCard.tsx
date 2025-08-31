@@ -1,27 +1,41 @@
 import Link from 'next/link'
 import React from 'react'
 import { ModelCardProps } from '../types'
-import Image from 'next/image'
+import { FaRegHeart } from 'react-icons/fa'
+
 
 
 export default async function ModelCard({model}: ModelCardProps) {
 
   return (
-    <div className="card bg-base-100 w-96 shadow-sm">
-    <figure>
-        <Image
-        src={model.image}
-        alt="Shoes"
-        width={300}
-        height={300} />
-    </figure>
-    <div className="card-body">
-        <h2 className="card-title">{model.name}</h2>
-        <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-        <div className="card-actions justify-end">
-        <Link href={`/3d-models/${model.id}`} className="btn btn-primary">View Details</Link>
-        </div>
-    </div>
-    </div>
+    <Link
+            href={`/3d-models/${model.id}`}
+            className="block group hover:shadow-[0_5px_12px_rgba(0,0,0,0.1)] hover:-translate-y-[3px] transition-all"
+            aria-labelledby={`model-${model.id}-title`}
+        >
+            <div className="overflow-hidden transition-shadow bg-white rounded-lg shadow-md hover:shadow-lg" role="article">
+                <div className="relative aspect-square">
+                    <img
+                        src={model.image}
+                        alt={model.name}
+                        className="absolute inset-0 object-cover w-full h-full"
+                    />
+                </div>
+                <div className="p-4">
+                    <div className="flex justify-between mb-2 min-h-[3.5rem]">
+                        <h2 id={`model-${model.id}-title`} className="text-xl font-semibold text-gray-800 line-clamp-2">
+                            {model.name}
+                        </h2>
+                    </div>
+                    <p className="text-gray-800 text-sm line-clamp-2 min-h-[2.5rem] leading-[1.25rem]">
+                        {model.description}
+                    </p>
+                    <div className="flex items-center mt-2 text-gray-600" aria-label={`${model.likes} likes`}>
+                        <FaRegHeart className="w-5 h-5 mr-1 text-gray-400" aria-hidden="true" />
+                        <span>{model.likes}</span>
+                    </div>
+                </div>
+            </div>
+        </Link>
   )
 }
