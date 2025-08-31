@@ -1,10 +1,13 @@
+"use client"
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import logo from "@/public/Artboard1.png";
 import mobileLogo from "@/public/printforge-logo mobile.png"
 import NavLink from './NavLink';
+import { usePathname } from 'next/navigation';
 export default function Navbar() {
+  const pathname = usePathname();
   return (
     <header className="px-6">
         <nav className="flex items-center justify-between">
@@ -26,8 +29,8 @@ export default function Navbar() {
               </div>
             </Link>
             <ul className="flex gap-3">
-              <NavLink href='/3d-models'>3D Models</NavLink>
-              <NavLink href='/about'>About</NavLink>
+              <NavLink href='/3d-models' isActive = {pathname === '/3d-models'}>3D Models</NavLink>
+              <NavLink href='/about' isActive = {pathname === '/about'}>About</NavLink>
             </ul>
           </nav>
     </header>
