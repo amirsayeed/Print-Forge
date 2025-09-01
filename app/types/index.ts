@@ -29,6 +29,10 @@ export type CategoryPageProps = {
   }>
 }
 
+export type GetModelsParams = {
+  category?: string
+}
+
 export type ModelDetailPageProps = {
   params: Promise<{
     id: string

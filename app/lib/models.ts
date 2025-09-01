@@ -1,8 +1,12 @@
 import modelsData from '@/app/data/models.json'
-import { Model } from '../types';
+import { GetModelsParams, Model } from '../types';
 
-export async function getAllModels(){
-    return modelsData;
+export async function getModels({category}: GetModelsParams = {}): Promise<Model[]>{
+    let filteredModels = [...modelsData]
+    if(category){
+      filteredModels = modelsData.filter((model: Model)=> model.category === category)
+    }
+    return filteredModels
 }
 
 export async function getModelById(id: string | number): Promise<Model> {

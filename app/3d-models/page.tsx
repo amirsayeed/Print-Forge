@@ -1,8 +1,8 @@
 import React from 'react'
-import {getAllModels} from '@/app/lib/models';
 import ModelsGrid from '../components/ModelsGrid';
+import { getModels } from '../lib/models';
 
 export default async function ModelsPage() {
-  const models = await getAllModels();
+  const models = await getModels();
   return <ModelsGrid title="3D Models" models={models} />
 }
